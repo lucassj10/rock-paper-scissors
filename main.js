@@ -1,22 +1,36 @@
 function getComputerChoice(){
-    let radnomNumber = Math.floor( Math.random() * 4 );
+    const radnomNumber = Math.floor( Math.random() * 3 );
     let computerChoice
-    if ( radnomNumber === 1 ){
+    if ( radnomNumber === 0 ){
         computerChoice = "rock";
-    } else if( radnomNumber === 2){
+    } else if( radnomNumber === 1){
         computerChoice = "paper";
     } else{
-        computerChoice = "scissor";
+        computerChoice = "scissors";
     }
     return computerChoice
 }
-console.log(getComputerChoice());
+
 
 function getHumanChoice(){
     let humanChoice = prompt( "Rock, Paper or Scissors" ).toLowerCase();
     return humanChoice;
 }
-console.log(getHumanChoice());
 
-let humanScore = 0
-let computerScore = 0
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanImput, computerImput){
+    if ( humanImput === "rock" && computerImput === "paper"){
+        return console.log("You lose! Paper beats rock!");
+    } else if ( humanImput === "rock" && computerImput === "scissors" ) {
+        return console.log("You win! Rock beats Scissors!");
+    } else if ( humanImput === "paper" && computerImput === "rock" ) {
+        return console.log("You win! Paper beats rock!");
+      }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
