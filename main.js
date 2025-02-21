@@ -45,10 +45,11 @@ function playRound(humanImput, computerImput){
       }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+
 
 function playGame (){
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
 }
 
