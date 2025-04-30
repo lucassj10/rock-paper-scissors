@@ -13,13 +13,28 @@ function getComputerChoice(){
 }
 
 
-function getHumanChoice(){
-    let humanChoice = prompt( "Rock, Paper or Scissor" ).toLowerCase();
-    return humanChoice;
-}
+const option = document.querySelector("#options");
 
-let humanScore = 0;
-let computerScore = 0;
+option.addEventListener("click", (e)=> {
+  let target = e.target;
+  let playerSelection
+
+  switch (target.id){
+    case "rock":
+      playerSelection = "Rock";
+    break;
+    case "paper":
+      playerSelection = "paper";
+    break;
+    case "scissor":
+      playerSelection = "scissor";
+    break;
+  }
+  
+  let computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection)
+
+})
 
 function playRound(humanImput, computerImput){
     if ( humanImput === "rock" && computerImput === "paper"){
@@ -45,17 +60,19 @@ function playRound(humanImput, computerImput){
       }
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
 
-function playGame (){
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-}
+//function playGame (){
+//let humanSelection = getHumanChoice();
+//let computerSelection = getComputerChoice();
+//playRound(humanSelection, computerSelection);
+//}
 
-for ( let i = 1; i < 6; i++ ){
-playGame();
-}
+//for ( let i = 1; i < 6; i++ ){
+//playGame();
+//}
 
 if ( computerScore > humanScore){
     console.log("You lost the game!");
