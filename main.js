@@ -20,8 +20,8 @@ const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score")
 const option = document.querySelector("#options");
 
-playerScore.textContent = `Player: ${humanScore}`;
-cpuScore.textContent = `CPU: ${computerScore}`;
+playerScore.textContent = `${humanScore}`;
+cpuScore.textContent = `${computerScore}`;
 
 
 option.addEventListener("click", (e)=> {
@@ -42,6 +42,7 @@ option.addEventListener("click", (e)=> {
   
   let computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
+  showChoices(playerSelection, computerSelection);
   showScore(humanScore, computerScore);
   ShowWinner();
 })
@@ -71,27 +72,35 @@ function playRound(humanImput, computerImput){
 }
 
 function showScore(score1, score2){
-  playerScore.textContent = `Player: ${score1}`;
-  cpuScore.textContent = `CPU: ${score2}`;  
+  playerScore.textContent = `${score1}`;
+  cpuScore.textContent = `${score2}`;  
 }
 
-const mainDiv = document.querySelector("#main");
+const mainDiv = document.querySelector(".score-main");
 const winner = document.createElement("div");
 const winnerText = document.createElement("p");
 
 function ShowWinner(){
 if ( humanScore == 5 ){
   winner.appendChild(winnerText);
-  winnerText.textContent = "You Won the game!"
+  winnerText.textContent = "You Won the game!";
+  winnerText.style.textAlign = "center";
   mainDiv.appendChild(winner);
 } else if ( computerScore == 5 ){
   winner.appendChild(winnerText);
-  winnerText.textContent = "The CPW Won the game"
-  mainDiv.appendChild(winnerText)
+  winnerText.textContent = "The CPW Won the game";
+  winnerText.style.textAlign = "center";
+  mainDiv.appendChild(winnerText);
 }
 }
 
+const showPlayerChoice = document.querySelector("#human-choice");
+const showCpuChoice = document.querySelector("#cpu-choice");
 
+function showChoices (choice1, choice2){
+showPlayerChoice.textContent = choice1;
+showCpuChoice.textContent = choice2;
+}
 
 
 //function playGame (){

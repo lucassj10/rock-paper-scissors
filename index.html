@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-COMPATIBLE" content="ie=edge">
     <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">  
 </head>
 <body>
     <script src="main.js" defer></script>
-    <h1>Choose an Option</h1>
-    <div id="main">
+        <h1>Rock Paper Scissors</h1>
+        <div class="score-main">
+            <h2>Score</h2>
+                <div class="container-score">
+                    <div id="humam-div">
+                        <p id="player-score"></p>
+                        <p> Human </p>
+                        <p id="human-choice"></p>
+                    </div>
+                    <div id="cpu-div">
+                        <p id="cpu-score"></p>
+                        <p> CPU </p>
+                        <p id="cpu-choice"></p>
+                    </div>
+                </div>
+        </div>
         <div id="options">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissor">Scissor</button>
         </div>
-        <div >
-            <p id="player-score">Player:</p>
-            <p id="cpu-score">CPU:</p>
-        </div>
-    </div>
 </body>
 </html>
