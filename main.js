@@ -12,8 +12,17 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
+
+const playerScore = document.querySelector("#player-score");
+const cpuScore = document.querySelector("#cpu-score")
 const option = document.querySelector("#options");
+
+playerScore.textContent = `Player: ${humanScore}`;
+cpuScore.textContent = `CPU: ${computerScore}`;
+
 
 option.addEventListener("click", (e)=> {
   let target = e.target;
@@ -21,7 +30,7 @@ option.addEventListener("click", (e)=> {
 
   switch (target.id){
     case "rock":
-      playerSelection = "Rock";
+      playerSelection = "rock";
     break;
     case "paper":
       playerSelection = "paper";
@@ -32,8 +41,9 @@ option.addEventListener("click", (e)=> {
   }
   
   let computerSelection = getComputerChoice();
-  playRound(playerSelection, computerSelection)
-
+  playRound(playerSelection, computerSelection);
+  showScore(humanScore, computerScore);
+  ShowWinner();
 })
 
 function playRound(humanImput, computerImput){
@@ -60,8 +70,28 @@ function playRound(humanImput, computerImput){
       }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function showScore(score1, score2){
+  playerScore.textContent = `Player: ${score1}`;
+  cpuScore.textContent = `CPU: ${score2}`;  
+}
+
+const mainDiv = document.querySelector("#main");
+const winner = document.createElement("div");
+const winnerText = document.createElement("p");
+
+function ShowWinner(){
+if ( humanScore == 5 ){
+  winner.appendChild(winnerText);
+  winnerText.textContent = "You Won the game!"
+  mainDiv.appendChild(winner);
+} else if ( computerScore == 5 ){
+  winner.appendChild(winnerText);
+  winnerText.textContent = "The CPW Won the game"
+  mainDiv.appendChild(winnerText)
+}
+}
+
+
 
 
 //function playGame (){
@@ -74,10 +104,10 @@ let computerScore = 0;
 //playGame();
 //}
 
-if ( computerScore > humanScore){
-    console.log("You lost the game!");
- } else if ( computerScore > humanScore ) {
-    console.log("You Won the Game!");
- } else{
-    console.log("It's a draw!")
- }
+//if ( computerScore > humanScore){
+//    console.log("You lost the game!");
+// } else if ( computerScore > humanScore ) {
+//    console.log("You Won the Game!");
+// } else{
+//    console.log("It's a draw!")
+// }
