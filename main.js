@@ -44,7 +44,6 @@ option.addEventListener("click", (e)=> {
 if (target.id == "rock" || target.id == "paper" || target.id == "scissor"){
   let computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
-  showChoices(playerSelection, computerSelection);
   showScore(humanScore, computerScore);
   ShowWinner();
 }
@@ -52,27 +51,29 @@ if (target.id == "rock" || target.id == "paper" || target.id == "scissor"){
   
 })
 
+const result = document.querySelector('#result');
+
 function playRound(humanImput, computerImput){
     if ( humanImput === "rock" && computerImput === "paper"){
         computerScore = ++computerScore;
-        return console.log("You lose! Paper beats rock!");
+        result.textContent = "The CPU choose paper. You lost the round!";
     } else if ( humanImput === "rock" && computerImput === "scissor" ) {
         humanScore = ++humanScore;
-        return console.log("You win! Rock beats scissors!");
+        result.textContent = "The CPU choose sacissor. You won the round!";
     } else if ( humanImput === "paper" && computerImput === "rock" ) {
         humanScore = ++humanScore;
-        return console.log("You win! Paper beats rock!");
+        result.textContent = "The CPU choose rock. You won the round!";
       } else if ( humanImput === "paper" && computerImput === "scissor"){
         computerScore = ++computerScore;
-        return console.log("You lose! Scissor beats paper!")
+        result.textContent = "The CPU choose scissor. You lost the round!";
       }else if ( humanImput === "scissor" && computerImput === "rock"){
         computerScore = ++computerScore;
-        return console.log("You lose! Rock beats scissor!")
+        result.textContent = "The CPU choose rock. You lost the round!";
       } else if ( humanImput === "scissor" && computerImput === "paper"){
         humanScore = ++humanScore;
-        return console.log("You win! Scissor beats paper!")
+        result.textContent = "The CPU choose paper. You won the Round!";
       }else{
-        return console.log("It's a draw!")
+        result.textContent = `The CPU also choose ${humanImput}. It's a draw!`;
       }
 }
 
@@ -99,13 +100,13 @@ if ( humanScore == 5 ){
 }
 }
 
-const showPlayerChoice = document.querySelector("#human-choice");
-const showCpuChoice = document.querySelector("#cpu-choice");
+//const showPlayerChoice = document.querySelector("#human-choice");
+//const showCpuChoice = document.querySelector("#cpu-choice");
 
-function showChoices (choice1, choice2){
-showPlayerChoice.textContent = choice1;
-showCpuChoice.textContent = choice2;
-}
+//function showChoices (choice1, choice2){
+//showPlayerChoice.textContent = choice1;
+//showCpuChoice.textContent = choice2;
+//}
 
 
 const resetBtn = document.querySelector("#reset");
@@ -113,8 +114,10 @@ resetBtn.addEventListener("click", ()=> {
   humanScore = 0;
   computerScore = 0;
   showScore(humanScore, computerScore);
-  showPlayerChoice.textContent = " ";
-  showCpuChoice.textContent = " ";
+  //showPlayerChoice.textContent = " ";
+  //showCpuChoice.textContent = " ";
+  winnerText.textContent = " ";
+  result.textContent = " ";
 })
 
 //function playGame (){
