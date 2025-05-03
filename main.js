@@ -91,7 +91,7 @@ function ShowWinner(){
 if ( humanScore == 5 ){
   winnerText.textContent = "You Won the game!";
 } else if ( computerScore == 5 ){
-  winnerText.textContent = "The CPW Won the game";
+  winnerText.textContent = "The CPU Won the game";
 }
 }
 
