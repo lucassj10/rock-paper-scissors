@@ -40,11 +40,16 @@ option.addEventListener("click", (e)=> {
     break;
   }
   
+
+if (target.id == "rock" || target.id == "paper" || target.id == "scissor"){
   let computerSelection = getComputerChoice();
   playRound(playerSelection, computerSelection);
   showChoices(playerSelection, computerSelection);
   showScore(humanScore, computerScore);
   ShowWinner();
+}
+
+  
 })
 
 function playRound(humanImput, computerImput){
@@ -102,6 +107,15 @@ showPlayerChoice.textContent = choice1;
 showCpuChoice.textContent = choice2;
 }
 
+
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", ()=> {
+  humanScore = 0;
+  computerScore = 0;
+  showScore(humanScore, computerScore);
+  showPlayerChoice.textContent = " ";
+  showCpuChoice.textContent = " ";
+})
 
 //function playGame (){
 //let humanSelection = getHumanChoice();

@@ -46,3 +46,22 @@ button{
     padding-left: 12px;
 }
 
+#human-choice #cpu-choice {
+    text-align: center;
+}
+
+#reset{
+    background-color: white;
+    border-color: blue;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    color: blue;
+}
+
+.reset-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    padding-left: 15px;
+}
