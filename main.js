@@ -27,7 +27,7 @@ cpuScore.textContent = `${computerScore}`;
 option.addEventListener("click", (e)=> {
   let target = e.target;
   let playerSelection
-
+  if (humanScore < 5 && computerScore < 5){
   switch (target.id){
     case "rock":
       playerSelection = "rock";
@@ -47,7 +47,9 @@ if (target.id == "rock" || target.id == "paper" || target.id == "scissor"){
   showScore(humanScore, computerScore);
   ShowWinner();
 }
-
+  } else {
+    alert("The game ended. Please, reset the game.")
+  }
   
 })
 
@@ -82,21 +84,14 @@ function showScore(score1, score2){
   cpuScore.textContent = `${score2}`;  
 }
 
-const mainDiv = document.querySelector(".score-main");
-const winner = document.createElement("div");
-const winnerText = document.createElement("p");
+
+const winnerText = document.querySelector(".game-announcement");
 
 function ShowWinner(){
 if ( humanScore == 5 ){
-  winner.appendChild(winnerText);
   winnerText.textContent = "You Won the game!";
-  winnerText.style.textAlign = "center";
-  mainDiv.appendChild(winner);
 } else if ( computerScore == 5 ){
-  winner.appendChild(winnerText);
   winnerText.textContent = "The CPW Won the game";
-  winnerText.style.textAlign = "center";
-  mainDiv.appendChild(winnerText);
 }
 }
 
