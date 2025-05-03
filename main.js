@@ -59,7 +59,7 @@ function playRound(humanImput, computerImput){
         result.textContent = "The CPU choose paper. You lost the round!";
     } else if ( humanImput === "rock" && computerImput === "scissor" ) {
         humanScore = ++humanScore;
-        result.textContent = "The CPU choose sacissor. You won the round!";
+        result.textContent = "The CPU choose scissor. You won the round!";
     } else if ( humanImput === "paper" && computerImput === "rock" ) {
         humanScore = ++humanScore;
         result.textContent = "The CPU choose rock. You won the round!";
